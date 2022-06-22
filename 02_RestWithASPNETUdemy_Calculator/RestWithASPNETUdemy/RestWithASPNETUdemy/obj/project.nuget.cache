@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "E6I9wtLJJZ3j0V02vbEp6rOp+XFvjlSgDafBF6o8DgjqUu6XGa3C5AzjQreg9Caw8/H23K0PM9MyDdQG2+4U/w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\paulo\\Documents\\[TechLab]\\PR_RestNet\\02_RestWithASPNETUdemy_Calculator\\RestWithASPNETUdemy\\RestWithASPNETUdemy\\RestWithASPNETUdemy.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\paulo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}
