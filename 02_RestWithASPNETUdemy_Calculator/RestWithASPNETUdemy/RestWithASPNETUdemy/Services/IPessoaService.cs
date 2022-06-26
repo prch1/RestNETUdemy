@@ -7,12 +7,12 @@ namespace RestWithASPNETUdemy.Services
     {
         Pessoa Criar(Pessoa pessoa);
 
-        Pessoa BuscaPorId(long id);
+        Pessoa BuscaPorId(int id);
 
         List<Pessoa> ListaTodos();
 
         Pessoa Atualizar(Pessoa pessoa);
 
-        void Remover(long id);
+        void Remover(int id);
     }
 }

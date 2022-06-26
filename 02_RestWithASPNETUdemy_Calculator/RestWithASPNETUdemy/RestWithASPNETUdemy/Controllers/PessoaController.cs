@@ -31,7 +31,7 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(long id)
+        public IActionResult Get(int id)
         {
             var pessoa = _pessoaService.BuscaPorId(id);
             if(pessoa == null) return NotFound();
@@ -53,7 +53,7 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
+        public IActionResult Delete(int id)
         {
             _pessoaService.Remover(id);
             return NoContent();

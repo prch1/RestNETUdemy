@@ -1,71 +1,93 @@
 ﻿using RestWithASPNETUdemy.Model;
+using RestWithASPNETUdemy.Model.Context;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 namespace RestWithASPNETUdemy.Services.Implementations
 {
     public class PessoaServiceImplementation : IPessoaService
     {
-        private volatile int count;
+        //private volatile int count;
+
+        private MSSQLContext _context;
+
+        public PessoaServiceImplementation(MSSQLContext context)
+        {
+            _context = context;
+        }
+
+
+        private bool Exists(int id)
+        {
+            return _context.Pessoas.Any(p => p.Id.Equals(id));
+        }
+
+        public Pessoa BuscaPorId(int id)
+        {
+            return _context.Pessoas.SingleOrDefault(p => p.Id.Equals(id));
+        }
+
+        public List<Pessoa> ListaTodos()
+        {
+            return _context.Pessoas.ToList();
+        }
+
 
         public Pessoa Criar(Pessoa pessoa)
-        {
+        {        
+            try
+            {
+                _context.Add(pessoa);
+                _context.SaveChanges();
+            }
+            catch (Exception )
+            {
+                throw; 
+            }    
             return pessoa;
         }
 
 
         public Pessoa Atualizar(Pessoa pessoa)
         {
+            if (!Exists(pessoa.Id)) return new Pessoa();
+          
+            var resultado = _context.Pessoas.SingleOrDefault(p => p.Id.Equals(pessoa.Id));
+
+            if(resultado != null)
+            {
+                try
+                {
+                    _context.Entry(resultado).CurrentValues.SetValues(pessoa);
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }  
+            }
             return pessoa;
         }
 
-        public Pessoa BuscaPorId(long id)
+        public void Remover(int id)
         {
-            return new Pessoa
-            {
-                Id = 1,
-                PrimeiroNome = "Paulo",
-                SobreNome = "Ricardo",
-                Endereco = "Sao Paulo - SP - Brasil",
-                Genero = "M"
-            };
-        }
+            var resultado = _context.Pessoas.SingleOrDefault(p => p.Id.Equals(id));
 
-       
-
-        public List<Pessoa> ListaTodos()
-        {
-           List<Pessoa> pessoas = new List<Pessoa>();
-            for(int i = 0; i < 8; i++)
+            if (resultado != null)
             {
-                Pessoa pessoa = MockPessoa(i);
-                pessoas.Add(pessoa);
+                try
+                {
+                    _context.Pessoas.Remove(resultado);
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
-
-            return pessoas;       
         }
 
-        private Pessoa MockPessoa(int i)
-        {
-            return new Pessoa
-            {
-                Id = Incrementa(),
-                PrimeiroNome = "Pessoa Nome" + i,
-                SobreNome = "Pessoa Sobrenome" + i,
-                Endereco = "Endereco " + i,
-                Genero = "MM" + i
-            };
-        }
-
-        private long Incrementa()
-        {
-            return Interlocked.Increment(ref count);
-        }
-
-        public void Remover(long id)
-        {
-            return ;
-        }
     }
 }
