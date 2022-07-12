@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ZXTUHatgcOPCajtWsAjsNIs2L3GRrZ1I39cjBxjRMOz+nrVwlIetQLONZfbFU7Ug4G9nVx6EKaz8usDIoRUOrA==",
+  "dgSpecHash": "JL2cfLQLvPFjcb2/lF8JyB0zBwfyk66qSBoXFYg++QX2+1CYTAUMXgZLQ3GJgFieYILeuOPd1oYXLLdYE8Ua/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\paulo\\Documents\\[TechLab]\\PR_RestNet\\02_RestWithASPNETUdemy_Calculator\\RestWithASPNETUdemy\\RestWithASPNETUdemy\\RestWithASPNETUdemy.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\paulo\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
@@ -97,8 +98,7 @@
     "C:\\Users\\paulo\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\paulo\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\paulo\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\paulo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+    "C:\\Users\\paulo\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

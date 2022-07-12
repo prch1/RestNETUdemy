@@ -44,6 +44,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Versioning": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -59,12 +63,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.17, 5.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -73,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

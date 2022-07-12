@@ -6,7 +6,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "launchUrl": "api/pessoa",
+      "launchUrl": "api/pessoa/v1",
       "applicationUrl": "https://localhost:59927;http://localhost:59928"
     }
   }

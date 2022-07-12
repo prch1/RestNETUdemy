@@ -33,9 +33,10 @@ namespace RestWithASPNETUdemy
             services.AddControllers();
 
             var connection = Configuration["MSSQLServerSQLConnection:MSSQLServerSQLConnectionString"];
-            services.AddDbContext<MSSQLContext>(options => options.UseSqlServer(connection));   
-            
-            //services.AddHttpClient(connection);
+            services.AddDbContext<MSSQLContext>(options => options.UseSqlServer(connection));
+
+            //Versionar API
+            services.AddApiVersioning();
 
             //Injeção de Dependência
             services.AddScoped<IPessoaService, PessoaServiceImplementation>();
