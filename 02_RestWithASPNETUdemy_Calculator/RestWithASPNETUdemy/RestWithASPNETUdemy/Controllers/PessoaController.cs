@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestWithASPNETUdemy.Model;
-using RestWithASPNETUdemy.Services;
+using RestWithASPNETUdemy.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,25 +16,25 @@ namespace RestWithASPNETUdemy.Controllers
     {
 
         private readonly ILogger<PessoaController> _logger;
-        private IPessoaService _pessoaService;
+        private IPessoaBusiness _pessoaBusiness;
 
-        public PessoaController(ILogger<PessoaController> logger, IPessoaService pessoaService)
+        public PessoaController(ILogger<PessoaController> logger, IPessoaBusiness pessoaService)
         {
             _logger = logger;
-            _pessoaService = pessoaService;
+            _pessoaBusiness = pessoaService;
         }
 
 
         [HttpGet]
         public IActionResult Get()
         { 
-          return Ok(_pessoaService.ListaTodos());
+          return Ok(_pessoaBusiness.ListaTodos());
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var pessoa = _pessoaService.BuscaPorId(id);
+            var pessoa = _pessoaBusiness.BuscaPorId(id);
             if(pessoa == null) return NotFound();
             return Ok(pessoa);
         }
@@ -43,20 +43,20 @@ namespace RestWithASPNETUdemy.Controllers
         public IActionResult Post([FromBody] Pessoa pessoa)
         { 
             if (pessoa == null) return BadRequest();
-            return Ok(_pessoaService.Criar(pessoa));
+            return Ok(_pessoaBusiness.Criar(pessoa));
         }
 
         [HttpPut]
         public IActionResult Put([FromBody] Pessoa pessoa)
         {
             if (pessoa == null) return BadRequest();
-            return Ok(_pessoaService.Atualizar(pessoa));
+            return Ok(_pessoaBusiness.Atualizar(pessoa));
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _pessoaService.Remover(id);
+            _pessoaBusiness.Remover(id);
             return NoContent();
         }
 

@@ -8,12 +8,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RestWithASPNETUdemy.Model.Context;
-using RestWithASPNETUdemy.Services;
-using RestWithASPNETUdemy.Services.Implementations;
+using RestWithASPNETUdemy.Business;
+using RestWithASPNETUdemy.Business.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using RestWithASPNETUdemy.Repository;
+using RestWithASPNETUdemy.Repository.Implementations;
 
 namespace RestWithASPNETUdemy
 {
@@ -39,7 +41,9 @@ namespace RestWithASPNETUdemy
             services.AddApiVersioning();
 
             //Injeção de Dependência
-            services.AddScoped<IPessoaService, PessoaServiceImplementation>();
+            services.AddScoped<IPessoaBusiness, PessoaBusinessImplementation>();
+            services.AddScoped<IPessoaRepository, PessoaRepositoryImplementation>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
