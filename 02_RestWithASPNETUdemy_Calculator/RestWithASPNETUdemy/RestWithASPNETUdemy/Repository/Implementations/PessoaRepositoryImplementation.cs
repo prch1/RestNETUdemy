@@ -52,7 +52,7 @@ namespace RestWithASPNETUdemy.Repository.Implementations
 
         public Pessoa Atualizar(Pessoa pessoa)
         {
-            if (!Exists(pessoa.Id)) return new Pessoa();
+            if (!Exists(pessoa.Id)) return null;
           
             var resultado = _context.Pessoas.SingleOrDefault(p => p.Id.Equals(pessoa.Id));
 
