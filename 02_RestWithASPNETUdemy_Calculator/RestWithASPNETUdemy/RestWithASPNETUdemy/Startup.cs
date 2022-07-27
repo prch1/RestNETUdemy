@@ -59,6 +59,9 @@ namespace RestWithASPNETUdemy
             services.AddScoped<IPessoaBusiness, PessoaBusinessImplementation>();
             services.AddScoped<IPessoaRepository, PessoaRepositoryImplementation>();
 
+            services.AddScoped<ILivroBusiness, LivroBusinessImplementation>();
+            services.AddScoped<ILivroRepository, LivroRepositoryImplementation>();
+
         }
 
         private void MigrateDatabase(string connection)
