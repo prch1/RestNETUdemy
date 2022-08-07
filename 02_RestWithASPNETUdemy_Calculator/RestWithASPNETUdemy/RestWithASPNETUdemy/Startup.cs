@@ -1,23 +1,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using RestWithASPNETUdemy.Model.Context;
 using RestWithASPNETUdemy.Business;
 using RestWithASPNETUdemy.Business.Implementations;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using RestWithASPNETUdemy.Repository;
-using RestWithASPNETUdemy.Repository.Implementations;
 using Serilog;
 using Microsoft.Data.SqlClient;
+using RestWithASPNETUdemy.Repository.Generic;
 
 namespace RestWithASPNETUdemy
 {
@@ -47,21 +41,19 @@ namespace RestWithASPNETUdemy
             var connection = Configuration["MSSQLServerSQLConnection:MSSQLServerSQLConnectionString"];
             services.AddDbContext<MSSQLContext>(options => options.UseSqlServer(connection));
 
-            if (Environment.IsDevelopment())
-            {
-                MigrateDatabase(connection);
-            }
+            //if (Environment.IsDevelopment())
+            //{
+            //    MigrateDatabase(connection);
+            //}
 
             //Versionar API
             services.AddApiVersioning();
 
             //Injeção de Dependência
             services.AddScoped<IPessoaBusiness, PessoaBusinessImplementation>();
-            services.AddScoped<IPessoaRepository, PessoaRepositoryImplementation>();
-
             services.AddScoped<ILivroBusiness, LivroBusinessImplementation>();
-            services.AddScoped<ILivroRepository, LivroRepositoryImplementation>();
 
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
 
         private void MigrateDatabase(string connection)

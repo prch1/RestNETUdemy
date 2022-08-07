@@ -1,5 +1,6 @@
 ﻿using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Repository;
+using RestWithASPNETUdemy.Repository.Generic;
 using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Business.Implementations
@@ -7,10 +8,10 @@ namespace RestWithASPNETUdemy.Business.Implementations
     public class LivroBusinessImplementation : ILivroBusiness
     {
 
-        private readonly ILivroRepository _repository;
+        private readonly IRepository<Livro> _repository;
 
 
-        public LivroBusinessImplementation(ILivroRepository repository)
+        public LivroBusinessImplementation(IRepository<Livro> repository)
         {
             _repository = repository;
         }

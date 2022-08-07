@@ -1,6 +1,7 @@
 ﻿using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Model.Context;
 using RestWithASPNETUdemy.Repository;
+using RestWithASPNETUdemy.Repository.Generic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,14 @@ namespace RestWithASPNETUdemy.Business.Implementations
     {
         //private volatile int count;
 
-        private readonly IPessoaRepository _repository;
+        private readonly IRepository<Pessoa> _repository;
 
       //  private MSSQLContext _repository;
 
-        public PessoaBusinessImplementation(IPessoaRepository repository)
+        public PessoaBusinessImplementation(IRepository<Pessoa> repository)
         {
             _repository = repository;
+
         }
 
         public Pessoa BuscaPorId(int id)
