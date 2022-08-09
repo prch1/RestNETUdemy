@@ -1,17 +1,18 @@
-﻿using RestWithASPNETUdemy.Model;
+﻿using RestWithASPNETUdemy.Data.VO;
+using RestWithASPNETUdemy.Model;
 using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Business
 {
     public interface ILivroBusiness
     {
-        Livro Criar(Livro Livro);
+        LivroVO Criar(LivroVO Livro);
 
-        Livro BuscaPorId(int id);
+        LivroVO BuscaPorId(int id);
 
-        List<Livro> ListaTodos();
+        List<LivroVO> ListaTodos();
 
-        Livro Atualizar(Livro Livro);
+        LivroVO Atualizar(LivroVO Livro);
 
         void Remover(int id);
 

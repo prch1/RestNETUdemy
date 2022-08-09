@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestWithASPNETUdemy.Business;
+using RestWithASPNETUdemy.Data.VO;
 using RestWithASPNETUdemy.Model;
 
 namespace RestWithASPNETUdemy.Controllers
@@ -35,14 +36,14 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Livro livro)
+        public IActionResult Post([FromBody] LivroVO livro)
         {
             if (livro == null) return BadRequest();
             return Ok(_livroBusiness.Criar(livro));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Livro livro)
+        public IActionResult Put([FromBody] LivroVO livro)
         {
             if (livro == null) return BadRequest();
             return Ok(_livroBusiness.Atualizar(livro));

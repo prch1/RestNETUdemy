@@ -1,11 +1,8 @@
-﻿using RestWithASPNETUdemy.Model;
-using RestWithASPNETUdemy.Model.Context;
-using RestWithASPNETUdemy.Repository;
+﻿using RestWithASPNETUdemy.Data.Converter.Implementations;
+using RestWithASPNETUdemy.Data.VO;
+using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Repository.Generic;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 
 namespace RestWithASPNETUdemy.Business.Implementations
 {
@@ -15,32 +12,41 @@ namespace RestWithASPNETUdemy.Business.Implementations
 
         private readonly IRepository<Pessoa> _repository;
 
+        private readonly PessoaConverter _converter;
+
       //  private MSSQLContext _repository;
 
         public PessoaBusinessImplementation(IRepository<Pessoa> repository)
         {
             _repository = repository;
+            _converter = new PessoaConverter();
 
         }
 
-        public Pessoa BuscaPorId(int id)
+        public PessoaVO BuscaPorId(int id)
         {
-            return _repository.BuscaPorId(id);
+            return _converter.Parse(_repository.BuscaPorId(id));
         }
 
-        public List<Pessoa> ListaTodos()
+        public List<PessoaVO> ListaTodos()
         {
-            return _repository.ListaTodos();
+            return _converter.Parse(_repository.ListaTodos());
         }
 
-        public Pessoa Criar(Pessoa pessoa)
-        {         
-            return _repository.Criar(pessoa);
-        }
-
-        public Pessoa Atualizar(Pessoa pessoa)
+        public PessoaVO Criar(PessoaVO pessoa)
         {
-            return _repository.Atualizar(pessoa);
+            var pessoaEntity = _converter.Parse(pessoa);
+            pessoaEntity = _repository.Criar(pessoaEntity);
+            return _converter.Parse(pessoaEntity);
+        }
+
+        public PessoaVO Atualizar(PessoaVO pessoa)
+        {
+
+            var pessoaEntity = _converter.Parse(pessoa);
+            pessoaEntity = _repository.Atualizar(pessoaEntity);
+
+            return _converter.Parse(pessoaEntity);
         }
 
         public void Remover(int id)

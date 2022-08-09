@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using RestWithASPNETUdemy.Data.VO;
 
 namespace RestWithASPNETUdemy.Controllers
 {
@@ -40,14 +41,14 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Pessoa pessoa)
+        public IActionResult Post([FromBody] PessoaVO pessoa)
         { 
             if (pessoa == null) return BadRequest();
             return Ok(_pessoaBusiness.Criar(pessoa));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Pessoa pessoa)
+        public IActionResult Put([FromBody] PessoaVO pessoa)
         {
             if (pessoa == null) return BadRequest();
             return Ok(_pessoaBusiness.Atualizar(pessoa));
