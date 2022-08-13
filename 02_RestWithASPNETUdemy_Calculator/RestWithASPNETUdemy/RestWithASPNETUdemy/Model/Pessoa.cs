@@ -7,7 +7,7 @@ namespace RestWithASPNETUdemy.Model
     public class Pessoa : BaseEntity
     {   
         [Column("PRIMEIRO_NOME")]
-        public string PrimeiroNomeA { get; set; }
+        public string PrimeiroNome { get; set; }
         [Column("SOBRE_NOME")]
         public string SobreNome { get; set; }
         [Column("ENDERECO")]

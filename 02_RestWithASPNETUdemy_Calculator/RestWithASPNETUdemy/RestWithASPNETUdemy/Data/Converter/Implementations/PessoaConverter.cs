@@ -14,7 +14,7 @@ namespace RestWithASPNETUdemy.Data.Converter.Implementations
             return new Pessoa
             {
                 Id = origem.Id,
-                PrimeiroNomeA = origem.PrimeiroNomeA,
+                PrimeiroNome = origem.PrimeiroNome,
                 SobreNome = origem.SobreNome,
                 Endereco = origem.Endereco,
                 Genero = origem.Genero
@@ -27,7 +27,7 @@ namespace RestWithASPNETUdemy.Data.Converter.Implementations
             return new PessoaVO
             {
                 Id = origem.Id,
-                PrimeiroNomeA = origem.PrimeiroNomeA,
+                PrimeiroNome = origem.PrimeiroNome,
                 SobreNome = origem.SobreNome,
                 Endereco = origem.Endereco,
                 Genero = origem.Genero
