@@ -13,6 +13,9 @@ using Serilog;
 using Microsoft.Data.SqlClient;
 using RestWithASPNETUdemy.Repository.Generic;
 using Microsoft.Net.Http.Headers;
+using RestWithASPNETUdemy.Hypermedia.Filters;
+using RestWithASPNETUdemy.Hypermedia;
+using RestWithASPNETUdemy.Hypermedia.Enricher;
 
 namespace RestWithASPNETUdemy
 {
@@ -56,6 +59,12 @@ namespace RestWithASPNETUdemy
                 options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
             })
                 .AddXmlSerializerFormatters();
+
+            var filterOptions = new HyperMediaFilterOptions();
+            filterOptions.ContentResponseEnricherList.Add(new PessoaEnricher());
+            filterOptions.ContentResponseEnricherList.Add(new LivroEnricher());
+
+            services.AddSingleton(filterOptions);
 
             //Versionar API
             services.AddApiVersioning();
@@ -103,6 +112,7 @@ namespace RestWithASPNETUdemy
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
             });
         }
     }
