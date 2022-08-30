@@ -64,3 +64,7 @@ C:\Users\paulo\Documents\[TechLab]\PR_RestNet\02_RestWithASPNETUdemy_Calculator\
 C:\Users\paulo\Documents\[TechLab]\PR_RestNet\02_RestWithASPNETUdemy_Calculator\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Serilog.Sinks.Console.dll
 C:\Users\paulo\Documents\[TechLab]\PR_RestNet\02_RestWithASPNETUdemy_Calculator\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
 C:\Users\paulo\Documents\[TechLab]\PR_RestNet\02_RestWithASPNETUdemy_Calculator\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Serilog.Sinks.File.dll
+C:\Users\paulo\Documents\[TechLab]\PR_RestNet\02_RestWithASPNETUdemy_Calculator\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\paulo\Documents\[TechLab]\PR_RestNet\02_RestWithASPNETUdemy_Calculator\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\paulo\Documents\[TechLab]\PR_RestNet\02_RestWithASPNETUdemy_Calculator\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\paulo\Documents\[TechLab]\PR_RestNet\02_RestWithASPNETUdemy_Calculator\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll

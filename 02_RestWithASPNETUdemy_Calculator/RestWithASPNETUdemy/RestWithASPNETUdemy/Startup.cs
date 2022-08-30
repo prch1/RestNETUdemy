@@ -16,6 +16,8 @@ using Microsoft.Net.Http.Headers;
 using RestWithASPNETUdemy.Hypermedia.Filters;
 using RestWithASPNETUdemy.Hypermedia;
 using RestWithASPNETUdemy.Hypermedia.Enricher;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace RestWithASPNETUdemy
 {
@@ -69,6 +71,22 @@ namespace RestWithASPNETUdemy
             //Versionar API
             services.AddApiVersioning();
 
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title ="REST API'S DO 0 AO AZURE COM ASP.NET CORE 5",
+                    Version= "v1",
+                    Description = "REST API'S DO 0 AO AZURE COM ASP.NET CORE 5",
+                    Contact = new OpenApiContact 
+                    {
+                      Name ="Paulo Ricardo",
+                      Url = new Uri("https://github.com/prch1")
+                    }
+                });
+            });
+
             //Injeção de Dependência
             services.AddScoped<IPessoaBusiness, PessoaBusinessImplementation>();
             services.AddScoped<ILivroBusiness, LivroBusinessImplementation>();
@@ -106,6 +124,16 @@ namespace RestWithASPNETUdemy
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger();
+            
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "REST API'S DO 0 AO AZURE COM ASP.NET CORE 5 - V1");
+               });
+
+            var option = new RewriteOptions();
+            option.AddRedirect("^$", "swagger");
+            app.UseRewriter(option);
 
             app.UseAuthorization();
 

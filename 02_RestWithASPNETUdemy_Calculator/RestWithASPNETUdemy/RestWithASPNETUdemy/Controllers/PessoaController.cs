@@ -28,6 +28,10 @@ namespace RestWithASPNETUdemy.Controllers
 
 
         [HttpGet]
+        [ProducesResponseType((200),Type = typeof(List<PessoaVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         { 
@@ -35,6 +39,10 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType((200), Type = typeof(PessoaVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
         {
@@ -44,6 +52,9 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType((200), Type = typeof(PessoaVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PessoaVO pessoa)
         { 
@@ -52,6 +63,10 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpPut]
+        [ProducesResponseType((200), Type = typeof(PessoaVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] PessoaVO pessoa)
         {
@@ -60,6 +75,10 @@ namespace RestWithASPNETUdemy.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType((200), Type = typeof(PessoaVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Delete(int id)
         {
             _pessoaBusiness.Remover(id);
