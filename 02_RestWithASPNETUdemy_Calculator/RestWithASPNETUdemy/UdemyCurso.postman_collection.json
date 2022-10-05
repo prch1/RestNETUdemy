@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "4daf1ba4-6ebd-4618-980c-902e84be748c",
+		"name": "UdemyCurso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14170265"
+	},
+	"item": [
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "ConsultaListaPessoa",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenDeAcesso}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:59927/api/pessoa/v1?",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "59927",
+							"path": [
+								"api",
+								"pessoa",
+								"v1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InserirPessoa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenDeAcesso}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n     \"primeiroNome\": \"Maria X\",\r\n    \"sobreNome\": \"XXXXX\",\r\n    \"endereco\": \"Rua B\",\r\n    \"genero\": \"F \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:59927/api/pessoa/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "59927",
+							"path": [
+								"api",
+								"pessoa",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizarPessoa",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenDeAcesso}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"id\": 6,\r\n    \"primeiroNome\": \"Geiovanna\",\r\n    \"sobreNome\": \"Exis\",\r\n    \"endereco\": \"Rua Arvore\",\r\n    \"genero\": \"F \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:59927/api/pessoa/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "59927",
+							"path": [
+								"api",
+								"pessoa",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarPessoa",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenDeAcesso}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:59927/api/pessoa/v1/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "59927",
+							"path": [
+								"api",
+								"pessoa",
+								"v1",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Livro",
+			"item": [
+				{
+					"name": "ConsultaListaLivro",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenDeAcesso}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:59927/api/livro/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "59927",
+							"path": [
+								"api",
+								"livro",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InserirLivro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenDeAcesso}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"titulo\": \"JOGOS VORAZES\",\r\n    \"editora\": \"EE JAMES\",\r\n    \"preco\": 25.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:59927/api/livro/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "59927",
+							"path": [
+								"api",
+								"livro",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizarLivro",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenDeAcesso}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 6,\r\n    \"titulo\": \"JOGOS VORAZES\",\r\n    \"editora\": \"EE JAME\",\r\n    \"preco\": 25.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:59927/api/livro/v1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "59927",
+							"path": [
+								"api",
+								"livro",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarLivro",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{tokenDeAcesso}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:59927/api/livro/v1/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "59927",
+							"path": [
+								"api",
+								"livro",
+								"v1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code >=200 && pm.response.code <=299){\r",
+									"    \r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n     \"nomeUsuario\": \"pr\",\r\n     \"senha\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:59927/api/auth/v1/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "59927",
+							"path": [
+								"api",
+								"auth",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
