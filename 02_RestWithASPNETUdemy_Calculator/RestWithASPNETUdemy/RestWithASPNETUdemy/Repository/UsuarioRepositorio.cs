@@ -25,6 +25,11 @@ namespace RestWithASPNETUdemy.Repository
                                                                            (u.Senha == passe)); 
         }
 
+        public Usuario ValidadeDaCredencial(string nomeUsuario)
+        {
+            return _context.Usuarios.SingleOrDefault(u => (u.NomeUsuario == nomeUsuario));
+        }
+
         private string ComputeHash(string senha, SHA256CryptoServiceProvider algorithm)
         {
             Byte[] inputBytes = Encoding.UTF8.GetBytes(senha);
@@ -53,6 +58,16 @@ namespace RestWithASPNETUdemy.Repository
                 return resultado;
             }
             return resultado;
+        }
+
+        public bool RevokeToken(string nomeUsuario)
+        {
+            var usuario = _context.Usuarios.SingleOrDefault(u => (u.NomeUsuario == nomeUsuario));
+            if (usuario is null) return false;
+            usuario.Token = null;
+            _context.SaveChanges();
+            return true;
+
         }
     }
 }
