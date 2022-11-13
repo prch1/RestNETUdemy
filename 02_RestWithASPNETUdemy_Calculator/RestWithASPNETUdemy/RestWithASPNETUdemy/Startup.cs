@@ -142,6 +142,7 @@ namespace RestWithASPNETUdemy
             services.AddScoped<ILoginBusiness, LoginBusinessImplementation>();
             services.AddTransient<ITokenService, TokenService>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<IPessoaRepositorio, PessoaRepositorio>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }

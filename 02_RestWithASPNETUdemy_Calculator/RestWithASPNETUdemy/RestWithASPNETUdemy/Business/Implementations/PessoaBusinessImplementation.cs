@@ -1,6 +1,7 @@
 ﻿using RestWithASPNETUdemy.Data.Converter.Implementations;
 using RestWithASPNETUdemy.Data.VO;
 using RestWithASPNETUdemy.Model;
+using RestWithASPNETUdemy.Repository;
 using RestWithASPNETUdemy.Repository.Generic;
 using System.Collections.Generic;
 
@@ -10,13 +11,13 @@ namespace RestWithASPNETUdemy.Business.Implementations
     {
         //private volatile int count;
 
-        private readonly IRepository<Pessoa> _repository;
+        private readonly IPessoaRepositorio _repository;
 
         private readonly PessoaConverter _converter;
 
       //  private MSSQLContext _repository;
 
-        public PessoaBusinessImplementation(IRepository<Pessoa> repository)
+        public PessoaBusinessImplementation(IPessoaRepositorio repository)
         {
             _repository = repository;
             _converter = new PessoaConverter();
@@ -49,10 +50,17 @@ namespace RestWithASPNETUdemy.Business.Implementations
             return _converter.Parse(pessoaEntity);
         }
 
+        public PessoaVO Desabilitar(int id)
+        {
+           var pessoaEntity = _repository.Desabilitar(id);
+            return _converter.Parse(pessoaEntity);
+        }
+
         public void Remover(int id)
         {
              _repository.Remover(id);
         }
 
+       
     }
 }

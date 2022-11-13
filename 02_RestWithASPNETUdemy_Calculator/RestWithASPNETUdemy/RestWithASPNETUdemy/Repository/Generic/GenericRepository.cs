@@ -10,7 +10,7 @@ namespace RestWithASPNETUdemy.Repository.Generic
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
        
-        private MSSQLContext _context;
+        protected MSSQLContext _context;
 
         private DbSet<T> dataset;
 

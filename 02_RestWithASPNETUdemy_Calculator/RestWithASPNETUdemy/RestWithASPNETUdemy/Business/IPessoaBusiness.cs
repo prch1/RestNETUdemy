@@ -15,6 +15,8 @@ namespace RestWithASPNETUdemy.Business
 
         PessoaVO Atualizar(PessoaVO pessoa);
 
+        PessoaVO Desabilitar(int id);
+
         void Remover(int id);
     }
 }

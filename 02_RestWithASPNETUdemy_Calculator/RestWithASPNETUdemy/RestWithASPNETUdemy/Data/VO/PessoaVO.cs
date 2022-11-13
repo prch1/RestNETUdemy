@@ -18,6 +18,8 @@ namespace RestWithASPNETUdemy.Data.VO
         public string Endereco { get; set; }
         //[JsonPropertyName("sex")]
         public string Genero { get; set; }
+      
+        public bool Habilitado { get; set; }
 
         public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
 

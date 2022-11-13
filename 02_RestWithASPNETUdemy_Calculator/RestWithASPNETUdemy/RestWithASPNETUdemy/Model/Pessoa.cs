@@ -13,6 +13,8 @@ namespace RestWithASPNETUdemy.Model
         [Column("ENDERECO")]
         public string Endereco { get; set; }
         [Column("GENERO")]
-        public string Genero { get; set; }  
+        public string Genero { get; set; }
+        [Column("HABILITADO")]
+        public bool Habilitado { get; set; }
     }
 }

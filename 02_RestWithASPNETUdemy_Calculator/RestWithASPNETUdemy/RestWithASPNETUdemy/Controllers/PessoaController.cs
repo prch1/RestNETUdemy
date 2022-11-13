@@ -53,6 +53,21 @@ namespace RestWithASPNETUdemy.Controllers
             return Ok(pessoa);
         }
 
+
+
+        [HttpPatch("{id}")]
+        [ProducesResponseType((200), Type = typeof(PessoaVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Patch(int id)
+        {
+            var pessoa = _pessoaBusiness.Desabilitar(id);
+            return Ok(pessoa);
+        }
+
+
         [HttpPost]
         [ProducesResponseType((200), Type = typeof(PessoaVO))]
         [ProducesResponseType(400)]
