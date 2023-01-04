@@ -53,6 +53,34 @@ namespace RestWithASPNETUdemy.Controllers
             return Ok(pessoa);
         }
 
+        [HttpGet("buscarPessoaPorNome")]
+        [ProducesResponseType((200), Type = typeof(PessoaVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Get([FromQuery] string primeiroNome, [FromQuery] string sobreNome)
+        {
+            var pessoa = _pessoaBusiness.BuscaPorNome(primeiroNome, sobreNome);
+            if (pessoa == null) return NotFound();
+            return Ok(pessoa);
+        }
+
+
+        [HttpGet("{direcionadorOrdenacao}/{tamanhoPagina}/{pagina}")]
+        [ProducesResponseType((200), Type = typeof(List<PessoaVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Get(
+            [FromQuery] string nome,
+              string direcionadorOrdenacao,
+              int tamanhoPagina,
+              int pagina)
+        {
+            return Ok(_pessoaBusiness.BuscaComPaginacao(nome, direcionadorOrdenacao, tamanhoPagina, pagina));
+        }
 
 
         [HttpPatch("{id}")]

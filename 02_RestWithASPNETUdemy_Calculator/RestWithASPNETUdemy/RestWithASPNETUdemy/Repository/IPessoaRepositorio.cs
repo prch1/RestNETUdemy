@@ -1,5 +1,6 @@
 ﻿using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Repository.Generic;
+using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Repository
 {
@@ -7,5 +8,6 @@ namespace RestWithASPNETUdemy.Repository
     {
         Pessoa Desabilitar(int id);
 
+        List<Pessoa> BuscaPorNome(string primeiroNome, string sobreNome);
     }
 }

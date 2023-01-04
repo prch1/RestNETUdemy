@@ -16,5 +16,10 @@ namespace RestWithASPNETUdemy.Repository.Generic
         void Remover(int id);
 
         bool Exists(int id);
+
+        List<T> BuscaComPaginacao(string query);
+
+        int GetCount(string query);
+
     }
 }

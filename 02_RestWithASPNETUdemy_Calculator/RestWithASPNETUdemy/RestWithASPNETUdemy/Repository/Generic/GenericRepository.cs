@@ -93,6 +93,28 @@ namespace RestWithASPNETUdemy.Repository.Generic
             return dataset.Any(i => i.Id.Equals(id));
         }
 
+        public List<T> BuscaComPaginacao(string query)
+        {
+            return dataset.FromSqlRaw<T>(query).ToList();
+        }
+
+        public int GetCount(string query)
+        {
+            var result = "";
+            using(var connection = _context.Database.GetDbConnection())
+            {
+                connection.Open();
+
+                using(var comando = connection.CreateCommand())
+                {
+                    comando.CommandText = query;
+                    result = comando.ExecuteScalar().ToString();
+
+                }
+            }
+
+            return int.Parse(result);
+        }
     }
    
 }
